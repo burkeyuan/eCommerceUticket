@@ -20,6 +20,33 @@
                     }
                     </style>
                 -->
+
+<script>
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("GET","getuser.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+
+
+
 	</head>
 	<div id="page-wrapper">
 	<body class="landing">
@@ -67,6 +94,47 @@
 					<h2>Welcome, Alfred! </h2>
 					<p>This is the 1st time you sign in to your account.</p>
 					<p>We have some recommendations for you. </p>
+
+<div id="txtHint"></div>
+
+<script>
+function showUser(str) {
+	document.write('test');
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "invalid input";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            } else {
+            	document.getElementById("txtHint").innerHTML = xmlhttp.status;
+            }
+        };
+        xmlhttp.open("GET","getuser.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+showUser('adf@fad.com');
+</script>
+
+
+
+
+
+
+
+					<!--
+					showUser('adf@fad.com');
+					<div id="txtHint"><b>Person info will be listed here...</b></div>
+				-->
 				</section>
 
 			<!-- Main -->
