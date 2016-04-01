@@ -91,17 +91,17 @@ function showUser(str) {
 			<!-- Banner -->
 				<section id="banner">
 					
-					<h2>Welcome, Alfred! </h2>
+					<h2><div id="txtHint"></div> </h2>
 					<p>This is the 1st time you sign in to your account.</p>
-					<p>We have some recommendations for you. </p>
+					<p>We have some recommendations for you.  </p>
 
-<div id="txtHint"></div>
+
+
 
 <script>
 function showUser(str) {
-	document.write('test');
     if (str == "") {
-        document.getElementById("txtHint").innerHTML = "invalid input";
+        document.getElementById("txtHint").innerHTML = "";
         return;
     } else { 
         if (window.XMLHttpRequest) {
@@ -114,9 +114,7 @@ function showUser(str) {
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-            } else {
-            	document.getElementById("txtHint").innerHTML = xmlhttp.status;
-            }
+            } 
         };
         xmlhttp.open("GET","getuser.php?q="+str,true);
         xmlhttp.send();
@@ -126,51 +124,11 @@ showUser('adf@fad.com');
 </script>
 
 
-
-
-
-
-
-					<!--
-					showUser('adf@fad.com');
-					<div id="txtHint"><b>Person info will be listed here...</b></div>
-				-->
 				</section>
 
 			<!-- Main -->
 				<section id="main" class="container">
-                  <!--  
-					<section class="box special">
-						<header class="major">
-							<h2>What is UTickets?</h2>
-							<p> • UTickets, where smart fans buy and sell tickets. •
-								<br>
-								• If you want to sell your ticket, just post it here! •
-								<br>
-								• If you want to buy tickets, we have the best price! •
-								<br>
-								• Our Machine Learning Algorithm will provide the recommended price! •
-							</p>
-						</header>
-						<span class="image featured"><img src="images/universities.jpeg" alt="" /></span>
-					</section>
-                -->
-					<!--<section class="box special features">
-						<div class="features-row">
-							<section>
-								
-								<img src="images/football.jpg", style="width:380px;height:270px" >
-								<h4>Wanna watch Football games? Click here!</h4>
 
-							</section>
-							<section>
-								<img src="images/basketball.jpg", style="width:380px;height:270px">
-								<h4>Wanna watch Basketball games? Click here!</h4>
-
-							</section>
-						</div>
-
-					</section>-->
 
 					<div class="row">
 						<div class="6u 12u(narrower)">
