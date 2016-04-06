@@ -5,7 +5,7 @@
     if($_POST) {
     // Set your secret key: remember to change this to your live secret key in production
     // See your keys here https://dashboard.stripe.com/account/apikeys
-    \Stripe\Stripe::setApiKey("sk_test_C5vQKnibpor26Yn9qOjByHO0");
+    \Stripe\Stripe::setApiKey("sk_test_RZczyef489DtihXAC8HKxvll");
     
     // Get the credit card details submitted by the form
     $token = $_POST['stripeToken'];
@@ -43,6 +43,7 @@
         $City = addslashes ($_POST['city']);
         $State = addslashes ($_POST['state']);
         $ZIP = addslashes ($_POST['zip']);
+        $Password = addslashes($_POST['password']);
     }
     else{
         $Username = $_POST['name'];
@@ -51,14 +52,15 @@
         $City = $_POST['city'];
         $State = $_POST['state'];
         $ZIP = $_POST['zip'];
+        $Password = $_POST['password'];
     }
 
     echo "<script> validateForm(); </script>";
 
     $sql = "INSERT INTO users ".
-        "(name,email,address,city,state,zip) ".
+        "(name,email,address,city,state,zip,password) ".
           "VALUES ".
-        "('$Username','$Email','$Address','$City','$State','$ZIP')";
+        "('$Username','$Email','$Address','$City','$State','$ZIP','$Password')";
 	mysqli_select_db($conn, 'utickets');
     //echo "<h2>" . $_POST['zip'] . "</h2>";
     //echo "<script>alert($_POST['zip']);</script>";
@@ -68,7 +70,7 @@
     {
         die("<script>alert('This username has been used. please try another one.');location.href='".$_SERVER["HTTP_REFERER"]."';</script>");
     }
-    echo "<script>alert('Registration Completed!');location.href='index.html';</script>";
+    echo "<script>alert('Registration Completed!');location.href='login.php';</script>";
     mysqli_close($conn);
 
 ?>
