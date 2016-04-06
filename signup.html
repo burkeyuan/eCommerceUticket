@@ -51,7 +51,7 @@
 									</li>
 								</ul>-->
 							</li>
-							<li><a href="signup.html" class="button">Sign Up</a></li>
+							<li><a href="signin.html" class="button">Sign In</a></li>
 						</ul>
 
 					</nav>
@@ -75,6 +75,14 @@
 								</div>
 								<div class="6u 12u(mobilep)">
 									<input type="email" name="email" value="" value="" placeholder="Email" onblur="ValidateEmail()"/>
+								</div>
+							</div>
+							<div class="row uniform 50%">
+								<div class="6u 12u(mobilep)">
+									<input type="text" name="password" value="" placeholder="Password" onblur="ValidatePassword()" />
+								</div>
+								<div class="6u 12u(mobilep)">
+									<input type="text" name="confirm_password" value="" value="" placeholder="Confirm Password" onblur="ValidateConfirmPass()"/>
 								</div>
 							</div>
 							<br>
@@ -159,6 +167,42 @@
 						  if (uname.value.trim().length<1){
 						  	alert("please enter name");
 						  	uname.focus();
+						  	return false;
+						  }
+						}
+
+						function ValidatePassword(){
+							var upassword = document.myform.password;
+							//var passowordformat=/^[a-zA-z1-9@#$%&]{1,50}$/;
+							if (upassword.value.length != 16){
+						  	  alert("Length of Your Password Should Be 16");
+						  	  upassword.focus();
+						  	  return false;
+						    }
+						    //if (!upassword.value.match(passwordformat)){
+						  	//  alert("Passord Should Only Contain a-zA-z0-9@#$%&");
+						  	//  upassword.focus();
+						  	//  return false;
+						    //}
+						    if (upassword.value.trim().length<1){
+						  	  alert("Please Enter Your Password");
+						  	  upassword.focus();
+						  	  return false;
+						    }
+						}
+
+						function ValidateConfirmPass(){
+							var upassword = document.myform.password;
+							var uconfirmpass = document.myform.confirm_password;
+							if (upassword.value != uconfirmpass.value){
+						  	alert("Passwords Should Match");
+						  	uconfirmpass.focus();
+						  	return false;
+						  }
+
+						  if (uconfirmpasss.value.trim().length<1){
+						  	alert("Please Confirm Your Password");
+						  	uconfirmpass.focus();
 						  	return false;
 						  }
 						}

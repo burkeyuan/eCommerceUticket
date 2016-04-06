@@ -12,7 +12,7 @@ $username = 'sysadmin';
 $passwordu = 'sysadmin';
 
 $con = new mysqli($servername, $username, $passwordu);
-echo "before connection";
+
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
@@ -23,7 +23,7 @@ $result = mysqli_query($con,$sql);
 
 
 while($row = mysqli_fetch_array($result)) {
-    echo "<p>" . $row['address'] . "</p>";
+    echo "Welcome, " . $row['name'];
 }
 mysqli_close($con);
 ?>
