@@ -29,7 +29,7 @@
 								if(isset($_SESSION['username'])) 
 								{
 							?>
-								<li><a href="">Welcome, <?php echo $_SESSION['username'];?></a></li>
+								<li><a href="memberHome.php">Welcome, <?php echo $_SESSION['username'];?></a></li>
 								<li><a href="index.php">Home</a></li>
 								<li>
 								<li><a href="logout.php" class="button">Log Out</a></li>
@@ -66,7 +66,20 @@
 <font size="4">Visit UTickets.com now! Enjoy the mutual benefit opportunities for the exciting NCAA games!</font>
 <br>
 <br>
+<?php 
+								if(isset($_SESSION['username'])) 
+								{
+							?>
+<button class="button" onclick="location.href='memberHome.php';">Go to your account!</button>
+
+<?php  
+								} else {
+							?>
 <button class="button" onclick="location.href='signup.html';">Sign Up Now!</button>
+
+<?php  
+								}
+							?>
 <!--<button type="button" onclick="alert('Hello world!')">Click Me!</button>-->
 
 							</font>

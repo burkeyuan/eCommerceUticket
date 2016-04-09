@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['username'])){
-		$home_url = 'signup.html';
+		$home_url = 'login.php';
     	header('Location: '.$home_url);
     }
 ?>
@@ -17,7 +17,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/member.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 					<!--<style>
                     #example1{
@@ -81,14 +81,19 @@ function showUser(str) {
 			<!-- Banner -->
 				<section id="banner">
 					
-				
-<?php
+					<?php
 	echo "<h2>Hello, " .$_SESSION['username']. " !</h2>";
 ?>
 
 					<p>We have some recommendations for you.  </p>
+					<ul class="actions">
+						<li><a href="#" class="button special">I want to buy</a></li>
+						<li><a href="#" class="button">I want to sell</a></li>
+					</ul>
 
-?>
+
+
+
 
 <script>
 function showUser(str) {
