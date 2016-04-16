@@ -173,9 +173,10 @@
 
 						function ValidatePassword(){
 							var upassword = document.myform.password;
+							var upasswordformat=/^[a-zA-z ]{1,50}$/;
 							//var passowordformat=/^[a-zA-z1-9@#$%&]{1,50}$/;
-							if (upassword.value.length != 16){
-						  	  alert("Length of Your Password Should Be 16");
+							if (upassword.value.length<8 || uname.value.length>16){
+						  	  alert("Length of Your Password Should Be Between 8 and 16");
 						  	  upassword.focus();
 						  	  return false;
 						    }
@@ -184,6 +185,12 @@
 						  	//  upassword.focus();
 						  	//  return false;
 						    //}
+							if (!upassword.value.match(upasswordformat)){
+						  		alert("Your Password Should Only Contain Characters");
+						  		upassword.focus();
+						  		return false;
+						  	}
+
 						    if (upassword.value.trim().length<1){
 						  	  alert("Please Enter Your Password");
 						  	  upassword.focus();
@@ -417,7 +424,7 @@
 
 						  <script type="text/javascript">
 						    // This identifies your website in the createToken call below
-						    Stripe.setPublishableKey('pk_test_qsRW1H2hZShCP9i8DihkIJY2');
+						    Stripe.setPublishableKey('pk_test_tAunCPIQIOAehJ2kEzxhXGpe');
 				            function stripeResponseHandler(status, response) {
 				                if (response.error) {
 				                    // re-enable the submit button

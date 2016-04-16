@@ -59,7 +59,7 @@
 								if(isset($_SESSION['username'])) 
 								{
 							?>
-								<li><a href="">Welcome, <?php echo $_SESSION['username'];?></a></li>
+								<li><a href="memberHome.php">Welcome, <?php echo $_SESSION['username'];?></a></li>
 								<li><a href="about.php">About Us</a></li>
 								<li>
 								<li><a href="logout.php" class="button">Log Out</a></li>
@@ -85,6 +85,24 @@
 
 					<h2>U T i c k e t s</h2>
 					<p>Your best ticket master!</p>
+					<?php 
+								if(isset($_SESSION['username'])) 
+								{
+							?>
+					<ul class="actions">
+						<li><a href="memberHome.php" class="button special">Your Account</a></li>
+						<li><a href="about.php" class="button">Learn More</a></li>
+					</ul>
+					<?php  
+								} else {
+							?>
+					<ul class="actions">
+						<li><a href="signup.html" class="button special">Sign Up</a></li>
+						<li><a href="about.php" class="button">Learn More</a></li>
+					</ul>
+					<?php  
+								}
+							?>
 
 				</section>
 

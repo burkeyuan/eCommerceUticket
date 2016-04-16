@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 <body>
 <?php
@@ -5,7 +9,7 @@
     if($_POST) {
     // Set your secret key: remember to change this to your live secret key in production
     // See your keys here https://dashboard.stripe.com/account/apikeys
-    \Stripe\Stripe::setApiKey("sk_test_RZczyef489DtihXAC8HKxvll");
+    \Stripe\Stripe::setApiKey("sk_test_C5vQKnibpor26Yn9qOjByHO0");
     
     // Get the credit card details submitted by the form
     $token = $_POST['stripeToken'];
@@ -43,7 +47,7 @@
         $City = addslashes ($_POST['city']);
         $State = addslashes ($_POST['state']);
         $ZIP = addslashes ($_POST['zip']);
-        $Password = addslashes($_POST['password']);
+        $Password = addslashes ($_POST['password']);
     }
     else{
         $Username = $_POST['name'];
@@ -74,6 +78,16 @@
     mysqli_close($conn);
 
 ?>
+
+
+<?php
+// Set session variables
+$_SESSION["username"] = "$Username";
+$_SESSION["favanimal"] = "cat";
+echo "Session variables are set.";
+?>
+
+
 
 <?php
 	$Username = $_POST['name'];
