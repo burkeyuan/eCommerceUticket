@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 <?php
 session_start();
 ?>
 
+=======
+>>>>>>> parent of d6e7a31... up to date
 <html>
 <body>
 <?php
@@ -47,7 +50,10 @@ session_start();
         $City = addslashes ($_POST['city']);
         $State = addslashes ($_POST['state']);
         $ZIP = addslashes ($_POST['zip']);
+<<<<<<< HEAD
         $Password = addslashes ($_POST['password']);
+=======
+>>>>>>> parent of d6e7a31... up to date
     }
     else{
         $Username = $_POST['name'];
@@ -56,15 +62,24 @@ session_start();
         $City = $_POST['city'];
         $State = $_POST['state'];
         $ZIP = $_POST['zip'];
+<<<<<<< HEAD
         $Password = $_POST['password'];
+=======
+>>>>>>> parent of d6e7a31... up to date
     }
 
     echo "<script> validateForm(); </script>";
 
     $sql = "INSERT INTO users ".
+<<<<<<< HEAD
         "(name,email,address,city,state,zip,password) ".
           "VALUES ".
         "('$Username','$Email','$Address','$City','$State','$ZIP','$Password')";
+=======
+        "(name,email,address,city,state,zip) ".
+          "VALUES ".
+        "('$Username','$Email','$Address','$City','$State','$ZIP')";
+>>>>>>> parent of d6e7a31... up to date
 	mysqli_select_db($conn, 'utickets');
     //echo "<h2>" . $_POST['zip'] . "</h2>";
     //echo "<script>alert($_POST['zip']);</script>";
@@ -74,11 +89,16 @@ session_start();
     {
         die("<script>alert('This username has been used. please try another one.');location.href='".$_SERVER["HTTP_REFERER"]."';</script>");
     }
+<<<<<<< HEAD
     echo "<script>alert('Registration Completed!');location.href='login.php';</script>";
+=======
+    echo "<script>alert('Registration Completed!');location.href='index.html';</script>";
+>>>>>>> parent of d6e7a31... up to date
     mysqli_close($conn);
 
 ?>
 
+<<<<<<< HEAD
 
 <?php
 // Set session variables
@@ -89,6 +109,8 @@ echo "Session variables are set.";
 
 
 
+=======
+>>>>>>> parent of d6e7a31... up to date
 <?php
 	$Username = $_POST['name'];
     $Email = $_POST['email'];
